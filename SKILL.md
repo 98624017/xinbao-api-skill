@@ -99,6 +99,17 @@ Content-Type: application/json
 - `ComfyUI` 特殊工作流
 - `Grok` 当前未提供独立 reference；若用户问到，只说明暂无独立页，不展开细研究
 
+## 版本与更新
+
+当前公开仓库使用 `VERSION`、`CHANGELOG.md` 和 Git tag 进行版本管理。
+如果用户明确要求“使用最新版 skill”、“确认最新心宝 API 接入说明”或当前回答依赖最新发布内容，先建议用户执行：
+
+```bash
+npx skills update xinbao-api
+```
+
+如果当前环境不能联网或不能执行更新命令，说明无法自动确认最新版，并继续基于已安装内容回答。
+
 ## 建议用法
 
 1. 先判断任务类型，再只读对应 reference 文件。

@@ -24,6 +24,16 @@ Or install all skills from this repository:
 npx skills add https://github.com/98624017/xinbao-api-skill
 ```
 
+## Update
+
+Update an installed copy with:
+
+```bash
+npx skills update xinbao-api
+```
+
+Version history is tracked in `VERSION`, `CHANGELOG.md`, and Git tags such as `v0.1.0`.
+
 ## Example Prompts
 
 - 帮我用心宝 API 接入 GPT Image 异步生图，并用 batch-get 轮询多个任务。
