@@ -62,12 +62,13 @@ Content-Type: application/json
 - 主站同步生图入口：`https://api.xinbaoai.com`
 - 异步生图专用入口：`https://async.xinbao-ai.com`
 
-3. 能同步就不要误走异步：
+3. 生图优先建议异步，避免网络差或长连接超时：
 
-- 多模态聊天、主站同步生图、视频任务、ComfyUI 都走主站
-- 异步生图任务流优先走 `async.xinbao-ai.com`
-- `https://api.xinbaoai.com` 用于主站同步生图，不要写成异步生图入口
-- 异步生图轮询和取结果优先使用提交响应中的 `polling_url`、`content_url`，不要手写猜测域名
+- 多模态聊天、视频任务、ComfyUI 仍走主站
+- 生图任务默认优先建议异步任务流，降低网络差、请求耗时长或长连接中断带来的失败风险
+- 只有用户明确要求同步返回，或场景必须同步等待结果时，才使用主站同步生图入口
+- `https://api.xinbaoai.com` 只命名为同步生图入口，不要叫异步兼容入口
+- 异步生图提交走 `https://async.xinbao-ai.com`，轮询和取结果优先使用提交响应中的 `polling_url`、`content_url`，不要手写猜测域名
 
 4. 异步生图要按任务流处理：
 

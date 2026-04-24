@@ -23,9 +23,10 @@ Authorization: Bearer <API_KEY>
 主站同步生图 Base URL: https://api.xinbaoai.com
 ```
 
-`https://api.xinbaoai.com` 是主站同步生图入口，不是异步生图入口。
-异步生图任务仍走 `https://async.xinbao-ai.com`；轮询和取结果优先使用提交响应中的
-`polling_url`、`content_url`，避免客户端手写猜测域名。
+`https://api.xinbaoai.com` 只命名为同步生图入口，不是异步生图入口。
+生图默认优先建议走 `https://async.xinbao-ai.com` 异步任务流，避免网络差、耗时长或长连接中断导致失败；
+只有用户明确要求同步返回，或业务场景必须同步等待结果时，才走同步生图入口。
+异步轮询和取结果优先使用提交响应中的 `polling_url`、`content_url`，避免客户端手写猜测域名。
 
 ## 端点速查
 
