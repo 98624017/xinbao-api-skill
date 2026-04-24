@@ -3,7 +3,6 @@ set -euo pipefail
 
 : "${XINBAO_API_KEY:?Set XINBAO_API_KEY first}"
 
-# 异步生图兼容入口也支持相同请求体：BASE_URL=https://api.xinbaoai.com
 BASE_URL="${BASE_URL:-https://async.xinbao-ai.com}"
 MODEL="${MODEL:-gemini-3-pro-image-preview}"
 COUNT="${COUNT:-20}"

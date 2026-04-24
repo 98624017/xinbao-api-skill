@@ -20,12 +20,10 @@ POST /v1/images/generations
 
 ```text
 https://async.xinbao-ai.com
-https://api.xinbaoai.com
 ```
 
-`https://api.xinbaoai.com` 是异步生图兼容入口。GPT Image / OpenAI 风格异步生图
-可以使用与 `https://async.xinbao-ai.com` 完全相同的请求体提交任务。
-后续轮询和取结果优先使用提交响应中的 `polling_url`、`content_url`。
+GPT Image / OpenAI 风格异步生图只按异步任务流描述，提交后轮询和取结果优先使用提交响应中的 `polling_url`、`content_url`。
+`https://api.xinbaoai.com` 是主站同步生图入口，不要写成异步生图入口。
 
 ## 提交任务
 

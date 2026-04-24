@@ -20,11 +20,11 @@ Authorization: Bearer <API_KEY>
 ```text
 主站 Base URL: https://api.xinbao-ai.com
 异步生图专用 Base URL: https://async.xinbao-ai.com
-异步生图兼容 Base URL: https://api.xinbaoai.com
+主站同步生图 Base URL: https://api.xinbaoai.com
 ```
 
-异步生图模型也支持使用相同请求体向 `https://api.xinbaoai.com` 发起。
-如果走兼容入口，提交请求体无需改字段；轮询和取结果优先使用提交响应中的
+`https://api.xinbaoai.com` 是主站同步生图入口，不是异步生图入口。
+异步生图任务仍走 `https://async.xinbao-ai.com`；轮询和取结果优先使用提交响应中的
 `polling_url`、`content_url`，避免客户端手写猜测域名。
 
 ## 端点速查
@@ -35,10 +35,8 @@ Authorization: Bearer <API_KEY>
   `POST https://api.xinbao-ai.com/v1beta/models/{model}:generateContent`
 - Gemini 异步生图提交：
   `POST https://async.xinbao-ai.com/v1beta/models/{model}:generateContent`
-  或 `POST https://api.xinbaoai.com/v1beta/models/{model}:generateContent`
 - GPT Image / OpenAI 风格异步生图提交：
   `POST https://async.xinbao-ai.com/v1/images/generations`
-  或 `POST https://api.xinbaoai.com/v1/images/generations`
 - 异步生图状态：
   `GET https://async.xinbao-ai.com/v1/tasks/{id}`
 - 异步生图批量状态：
@@ -65,7 +63,6 @@ Authorization: Bearer <API_KEY>
 
 - `gpt-image` / `gpt image2` 走：
   `POST https://async.xinbao-ai.com/v1/images/generations`
-  或兼容入口 `POST https://api.xinbaoai.com/v1/images/generations`
 - `gpt-image-2-oai` 也走同一个端点，与 `gpt-image-2`
   共用同一套异步任务流
 - 不要误套 Gemini 的 `contents + generationConfig` 请求体

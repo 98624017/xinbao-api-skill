@@ -4,7 +4,6 @@ set -euo pipefail
 : "${XINBAO_API_KEY:?Set XINBAO_API_KEY first}"
 
 MAIN_BASE="${MAIN_BASE:-https://api.xinbao-ai.com}"
-# 异步生图也可把 ASYNC_BASE 改成 https://api.xinbaoai.com，请求体不变。
 ASYNC_BASE="${ASYNC_BASE:-https://async.xinbao-ai.com}"
 
 auth_header() {

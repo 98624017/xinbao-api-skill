@@ -56,20 +56,18 @@ Authorization: Bearer <API_KEY>
 Content-Type: application/json
 ```
 
-2. Base URL 必须按能力区分，同时保留异步生图兼容入口：
+2. Base URL 必须按能力区分：
 
 - 主站：`https://api.xinbao-ai.com`
+- 主站同步生图入口：`https://api.xinbaoai.com`
 - 异步生图专用入口：`https://async.xinbao-ai.com`
-- 异步生图兼容入口：`https://api.xinbaoai.com`
-  使用与异步生图专用入口完全相同的请求体发起任务
 
 3. 能同步就不要误走异步：
 
 - 多模态聊天、主站同步生图、视频任务、ComfyUI 都走主站
 - 异步生图任务流优先走 `async.xinbao-ai.com`
-- 若用户环境统一接入 `api.xinbaoai.com`，Gemini 异步生图与 GPT Image / OpenAI 风格异步生图
-  可使用相同请求体向 `https://api.xinbaoai.com` 发起
-- 轮询和取结果优先使用提交响应中的 `polling_url`、`content_url`，不要手写猜测域名
+- `https://api.xinbaoai.com` 用于主站同步生图，不要写成异步生图入口
+- 异步生图轮询和取结果优先使用提交响应中的 `polling_url`、`content_url`，不要手写猜测域名
 
 4. 异步生图要按任务流处理：
 

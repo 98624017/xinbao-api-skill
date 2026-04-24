@@ -44,9 +44,9 @@ Version history is tracked in `VERSION`, `CHANGELOG.md`, and Git tags such as `v
 
 ## Notes
 
-Async image generation supports both:
+Image generation endpoints:
 
 - Dedicated async endpoint: `https://async.xinbao-ai.com`
-- Compatible endpoint with the same request body: `https://api.xinbaoai.com`
+- Main synchronous image endpoint: `https://api.xinbaoai.com`
 
-For polling and result retrieval, prefer `polling_url` and `content_url` returned by the submit response.
+Async image generation should use `https://async.xinbao-ai.com`. For polling and result retrieval, prefer `polling_url` and `content_url` returned by the submit response.

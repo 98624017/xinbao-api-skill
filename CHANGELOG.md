@@ -1,11 +1,17 @@
 # Changelog
 
+## 0.1.1 - 2026-04-24
+
+### 修复
+- 修正 `https://api.xinbaoai.com` 的定位：该地址是主站同步生图入口，不是异步生图兼容入口。
+- 移除异步生图参考文档和脚本中对 `api.xinbaoai.com` 的错误异步入口说明。
+
 ## 0.1.0 - 2026-04-24
 
 ### 新增
 - 首次发布 `xinbao-api` skill 独立公开仓库。
 - 支持多模态聊天、同步生图、Gemini 异步生图、GPT Image / OpenAI 风格异步生图、视频任务与 ComfyUI 工作流参考。
-- 补充异步生图兼容 Base URL：`https://api.xinbaoai.com`，可使用与 `https://async.xinbao-ai.com` 相同的请求体提交任务。
+- 补充主站同步生图 Base URL：`https://api.xinbaoai.com`。
 - 提供 curl 示例脚本与异步生图并发压测脚本。
 
 ### 维护
